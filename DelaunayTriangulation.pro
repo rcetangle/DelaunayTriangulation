@@ -28,6 +28,7 @@ SOURCES += \
         circle.cpp \
         delaunaytriangulation.cpp \
         edge.cpp \
+        idw.cpp \
         main.cpp \
         mainwindow.cpp \
         triangle.cpp \
@@ -35,9 +36,9 @@ SOURCES += \
 
 HEADERS += \
         circle.h \
-        delaunay.h \
         delaunaytriangulation.h \
         edge.h \
+        idw.h \
         mainwindow.h \
         triangle.h \
         vertex.h

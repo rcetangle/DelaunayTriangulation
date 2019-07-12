@@ -41,6 +41,16 @@ Vertex Vertex::operator-(const Vertex &right) const
     return Vertex(x-right.x, y-right.y);
 }
 
+Vertex Vertex::operator*(const int c) const
+{
+    return Vertex(x*c, y*c);
+}
+
+Vertex Vertex::operator*(const double c) const
+{
+    return Vertex(x*c, y*c);
+}
+
 bool Vertex::operator==(const Vertex &right) const
 {
     return abs(x-right.x) <= DBL_EPSILON && abs(y-right.y) <= DBL_EPSILON;
@@ -71,4 +81,10 @@ double Vertex::getX() const
 double Vertex::getY() const
 {
     return y;
+}
+
+void Vertex::set(const double x, const double y)
+{
+    setX(x);
+    setY(y);
 }

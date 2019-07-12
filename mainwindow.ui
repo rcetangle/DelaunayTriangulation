@@ -29,9 +29,32 @@
     </property>
     <addaction name="separator"/>
     <addaction name="actionRandomPoints"/>
-    <addaction name="actionAddPoint"/>
+   </widget>
+   <widget class="QMenu" name="menuAddImg">
+    <property name="title">
+     <string>AddImg</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionaddImg"/>
+   </widget>
+   <widget class="QMenu" name="menuWarp">
+    <property name="title">
+     <string>Warp</string>
+    </property>
+    <addaction name="actionIDW"/>
+    <addaction name="actionBFS"/>
+   </widget>
+   <widget class="QMenu" name="menuFix">
+    <property name="title">
+     <string>Fix</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionFixBlank"/>
    </widget>
    <addaction name="menuDelaunay"/>
+   <addaction name="menuAddImg"/>
+   <addaction name="menuWarp"/>
+   <addaction name="menuFix"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -40,18 +63,36 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionaddImg"/>
    <addaction name="actionRandomPoints"/>
-   <addaction name="actionAddPoint"/>
+   <addaction name="actionIDW"/>
+   <addaction name="actionBFS"/>
+   <addaction name="actionFixBlank"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionRandomPoints">
    <property name="text">
-    <string>RandomPoints</string>
+    <string>Delaunay</string>
    </property>
   </action>
-  <action name="actionAddPoint">
+  <action name="actionaddImg">
    <property name="text">
-    <string>AddPoint</string>
+    <string>addImg</string>
+   </property>
+  </action>
+  <action name="actionIDW">
+   <property name="text">
+    <string>IDW</string>
+   </property>
+  </action>
+  <action name="actionBFS">
+   <property name="text">
+    <string>RBF</string>
+   </property>
+  </action>
+  <action name="actionFixBlank">
+   <property name="text">
+    <string>FixBlank</string>
    </property>
   </action>
  </widget>

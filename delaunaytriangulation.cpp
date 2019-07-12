@@ -37,8 +37,8 @@ DelaunayTriangulation::DelaunayTriangulation()
 
 void DelaunayTriangulation::addPoint(const Vertex &vec)
 {
-    qDebug() << "-------- add new point:";
-    qDebug() << "waiting triangulation size " << triangulation.size();
+//    qDebug() << "-------- add new point:";
+//    qDebug() << "waiting triangulation size " << triangulation.size();
 
     // get all the bad triangles.
     std::vector<Edge> polygon;
@@ -58,24 +58,24 @@ void DelaunayTriangulation::addPoint(const Vertex &vec)
             triIter->isBad = false;
         }
     }
-    qDebug() << "bad triangles size: " << basTriagles;
-    qDebug() << "waiting edges size: " << polygon.size();
+//    qDebug() << "bad triangles size: " << basTriagles;
+//    qDebug() << "waiting edges size: " << polygon.size();
 
     // remove bad triangles from triangulations.
     triangulation.erase(remove_if(triangulation.begin(), triangulation.end(), [](Triangle &tri){
                             return tri.isBad;
                         }), triangulation.end());
 
-    qDebug() << "current triangulation size " << triangulation.size();
-    int rhha = 0;
-    for (auto triIter = triangulation.begin(); triIter != triangulation.end(); triIter++)
-    {
-        if (triIter->isBad)
-        {
-            qDebug() << "已经erase了，为啥还有isBad" << rhha;
-        }
-        rhha++;
-    }
+//    qDebug() << "current triangulation size " << triangulation.size();
+//    int rhha = 0;
+//    for (auto triIter = triangulation.begin(); triIter != triangulation.end(); triIter++)
+//    {
+//        if (triIter->isBad)
+//        {
+//            qDebug() << "已经erase了，为啥还有isBad" << rhha;
+//        }
+//        rhha++;
+//    }
     // find remove bad edges in polygon
     for (auto egIter = polygon.begin(); egIter != polygon.end(); egIter++)
     {
@@ -91,7 +91,7 @@ void DelaunayTriangulation::addPoint(const Vertex &vec)
     polygon.erase(remove_if(polygon.begin(), polygon.end(), [](Edge &e){
                       return e.isBad;
                   }), polygon.end());
-    qDebug() << "good egdes size: " << polygon.size();
+//    qDebug() << "good egdes size: " << polygon.size();
 
     // add the new point in polygon, and form new triangles.
     for (auto egIter = polygon.begin(); egIter != polygon.end(); egIter++)
@@ -99,7 +99,7 @@ void DelaunayTriangulation::addPoint(const Vertex &vec)
         Triangle newTri(egIter->getA(), egIter->getB(), vec);
         triangulation.push_back(newTri);
     }
-    qDebug() << "latest triangulation size " << triangulation.size()<< endl;
+//    qDebug() << "latest triangulation size " << triangulation.size()<< endl;
 
     for (auto triIter = triangulation.begin(); triIter != triangulation.end(); triIter++)
     {
@@ -120,7 +120,7 @@ std::vector<Triangle> DelaunayTriangulation::getTriangulation()
     triangulation.erase(std::remove_if(triangulation.begin(), triangulation.end(), [this](Triangle &tri){
                             return tri.isContainVertex(super->getA()) || tri.isContainVertex(super->getB()) || tri.isContainVertex(super->getC());
                         }), triangulation.end());
-    qDebug() << "final triangulation size " << triangulation.size();
+//    qDebug() << "final triangulation size " << triangulation.size();
     return triangulation;
 }
 
